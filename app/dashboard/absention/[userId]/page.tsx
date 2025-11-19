@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Image from 'next/image';
+import DashboardLayout from '@/components/DashboardLayout';
 import { mockAbsentions, mockUsers } from '@/lib/mockData';
 import { Absention } from '@/types';
 
@@ -57,47 +57,8 @@ export default function AbsentionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navbar */}
-      <nav className="bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
-                <Image
-                  src="/images/coding_anarchist_logo.png"
-                  alt="Coding Anarchist Logo"
-                  width={40}
-                  height={40}
-                  className="object-cover"
-                />
-              </div>
-              <span className="text-xl font-bold text-gray-900">Coding Anarchist</span>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span className="text-gray-700 font-medium">Suyud</span>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
-                <span>Logout</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <DashboardLayout>
+      <div className="p-8">
         <div className="mb-6">
           <button
             onClick={() => router.push('/dashboard')}
@@ -157,6 +118,6 @@ export default function AbsentionPage() {
           </div>
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
 }
